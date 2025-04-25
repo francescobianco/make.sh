@@ -137,9 +137,9 @@ I would like to express my sincere gratitude to those who have contributed to ma
 
 Special thanks to:
 
-**Joseph Werle** (@jwerle) and **Ben Peachey** (@Potherca) for their outstanding work in maintaining BPKG and for their contribution in supporting the Bash ecosystem, demonstrating that shell languages deserve the same dignity as other programming languages.
+**Joseph Werle** ([@jwerle](https://github.com/jwerle)) and **Ben Peachey** ([@Potherca](https://github.com/Potherca)) for their outstanding work in maintaining BPKG and for their contribution in supporting the Bash ecosystem, demonstrating that shell languages deserve the same dignity as other programming languages.
 
-A special acknowledgement goes to **Koichi Nakashima** (@ko1nksm), not only for his pioneering work on ShellSpec, but also for his determination and willingness to keep the world of shell languages at the cutting edge. His vision has shown that these languages are full of possibilities and without effective limitations.
+A special acknowledgement goes to **Koichi Nakashima** ([@ko1nksm](https://github.com/ko1nksm)), not only for his pioneering work on ShellSpec, but also for his determination and willingness to keep the world of shell languages at the cutting edge. His vision has shown that these languages are full of possibilities and without effective limitations.
 
 Thanks to their commitment, the shell languages community continues to thrive and evolve, providing developers with powerful and elegant tools to solve complex problems.
 
