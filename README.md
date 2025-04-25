@@ -1,7 +1,7 @@
 <div align="center">
 
 
-<h1> `⚙️ Make.sh`<br>A Tiny, Portable, Drop-in Alternative to GNU Make</h1>
+<h1> <kbd>⚙️ Make.sh</kbd><br>A Tiny, Portable, Drop-in Alternative to GNU Make</h1>
 
 __💡 100% POSIX Shell — No Compilers. No Dependencies. Just Build.__
 
