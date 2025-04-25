@@ -11,7 +11,7 @@ __💡 100% POSIX Shell — No Compilers. No Dependencies. Just Build.__
 [![Codecov](https://img.shields.io/codecov/c/github/ko1nksm/getoptions?logo=codecov)](https://codecov.io/gh/ko1nksm/getoptions)
 [![kcov](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fko1nksm.github.io%2Fgetoptions%2Fcoverage.json&query=percent_covered&label=kcov&suffix=%25)](https://ko1nksm.github.io/getoptions/)
 [![GitHub top language](https://img.shields.io/github/languages/top/ko1nksm/getoptions.svg)](https://github.com/ko1nksm/getoptions/search?l=Shell)
-[![License](https://img.shields.io/github/license/ko1nksm/getoptions.svg)](https://github.com/ko1nksm/getoptions/blob/master/LICENSE)<br>
+[![License](https://img.shields.io/github/license/francescobianco/make.sh.svg)](https://github.com/francescobianco/make.sh/blob/main/LICENSE)<br>
 ![Linux](https://img.shields.io/badge/Linux-ecd53f?style=flat)
 ![macOS](https://img.shields.io/badge/macOS-ecd53f?style=flat)
 ![BSD](https://img.shields.io/badge/BSD-ecd53f?style=flat)
