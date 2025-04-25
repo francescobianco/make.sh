@@ -33,7 +33,7 @@ __💡 100% POSIX Shell — No Compilers. No Dependencies. Just Build.__
 
 ## 🚀 What is `make.sh`?
 
-**`make.sh` is a POSIX-compliant, shell-based alternative to GNU Make** — designed to run standard Makefiles **without installing any build tools or system packages**.
+**Make.sh is a POSIX-compliant, shell-based alternative to GNU Make** — designed to run standard Makefiles **without installing any build tools or system packages**.
 
 It's ideal for:
 
