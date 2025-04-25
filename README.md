@@ -1,6 +1,35 @@
-# ⚙️ make.sh — A Tiny, Portable, Drop-in Alternative to GNU Make  
+<div align="center">
 
-> 💡 100% POSIX Shell — No Compilers. No Dependencies. Just Build.
+
+<h1> ⚙️ Make.sh<br>A Tiny, Portable, Drop-in Alternative to GNU Make</h1>
+
+__💡 100% POSIX Shell — No Compilers. No Dependencies. Just Build.__
+
+
+[![Test](https://github.com/ko1nksm/getoptions/workflows/Test/badge.svg)](https://github.com/ko1nksm/getoptions/actions)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ko1nksm/getoptions?logo=codefactor)](https://www.codefactor.io/repository/github/ko1nksm/getoptions)
+[![Codecov](https://img.shields.io/codecov/c/github/ko1nksm/getoptions?logo=codecov)](https://codecov.io/gh/ko1nksm/getoptions)
+[![kcov](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fko1nksm.github.io%2Fgetoptions%2Fcoverage.json&query=percent_covered&label=kcov&suffix=%25)](https://ko1nksm.github.io/getoptions/)
+[![GitHub top language](https://img.shields.io/github/languages/top/ko1nksm/getoptions.svg)](https://github.com/ko1nksm/getoptions/search?l=Shell)
+[![License](https://img.shields.io/github/license/ko1nksm/getoptions.svg)](https://github.com/ko1nksm/getoptions/blob/master/LICENSE)<br>
+![Linux](https://img.shields.io/badge/Linux-ecd53f?style=flat)
+![macOS](https://img.shields.io/badge/macOS-ecd53f?style=flat)
+![BSD](https://img.shields.io/badge/BSD-ecd53f?style=flat)
+![Solaris](https://img.shields.io/badge/Solaris-ecd53f?style=flat)
+![AIX](https://img.shields.io/badge/AIX-ecd53f?style=flat)
+![BusyBox](https://img.shields.io/badge/BusyBox-ecd53f?style=flat)
+![Windows](https://img.shields.io/badge/Windows-ecd53f?style=flat)
+![sh](https://img.shields.io/badge/sh-cec7d1.svg?style=flat)
+![bash](https://img.shields.io/badge/bash-cec7d1.svg?style=flat)
+![dash](https://img.shields.io/badge/dash-cec7d1.svg?style=flat)
+![ksh](https://img.shields.io/badge/ksh-cec7d1.svg?style=flat)
+![mksh](https://img.shields.io/badge/mksh-cec7d1.svg?style=flat)
+![yash](https://img.shields.io/badge/yash-cec7d1.svg?style=flat)
+![zsh](https://img.shields.io/badge/zsh-cec7d1.svg?style=flat)
+
+
+
+</div>
 
 ## 🚀 What is `make.sh`?
 
