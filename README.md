@@ -90,7 +90,7 @@ chmod +x make.sh
 ./make.sh target
 ```
 
-## 📦 Install it from a CDN
+## 📦 Install it from the CDN
 
 ```bash
 curl -fsSL https://get.javanile.org/make.sh | sh -
