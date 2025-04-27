@@ -3,5 +3,7 @@
 target/
 deps/
 lib/
+bin/
+!bin/make.sh
 .env
 .convcommit
