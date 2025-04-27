@@ -20,3 +20,5 @@ message:_
 message:~_
 scope:
 message:add mush files
+scope:
+message:add dependencies

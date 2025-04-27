@@ -6,3 +6,8 @@ edition = "2022"
 # See more keys and their definitions at https://mush.javanile.org/manifest.html
 
 [dependencies]
+getoptions = "*"
+
+[dev-dependencies]
+shellspec = "bpkg shellspec/shellspec"
+#shellcheck = "apt shellcheck | yum shellcheck"
