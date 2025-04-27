@@ -22,3 +22,5 @@ scope:
 message:add mush files
 scope:
 message:add dependencies
+scope:
+message:remove unused files
