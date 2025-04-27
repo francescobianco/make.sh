@@ -1,4 +1,6 @@
 
+embed usage usage.txt
+
 main() {
-  echo "Hello World!"
+  usage
 }
