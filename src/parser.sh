@@ -12,6 +12,7 @@ make_sh_parser_init() {
   MAKE_PHONY=""
   MAKE_VAR_NAMES=""
   MAKE_CURRENT_TARGET=""
+  MAKE_CURRENT_LINE=0
 }
 
 # Add a target to the targets list if not already present
@@ -143,6 +144,8 @@ make_sh_parser_load() {
   continued=0
 
   while IFS= read -r raw_line || [ -n "$raw_line" ]; do
+    MAKE_CURRENT_LINE=$((MAKE_CURRENT_LINE + 1))
+
     # Handle line continuation
     if [ "$continued" = "1" ]; then
       # Remove leading whitespace from continuation
@@ -396,6 +399,9 @@ make_sh_parser_load() {
           local safe_t; safe_t=$(make_sh_parser_sanitize "$tgt")
           # Expand prereqs at parse time for := style, but store as-is for deferred
           eval "MAKE_PREREQS_${safe_t}=\$rule_prereqs"
+          # Store rule line number and source file for --trace
+          eval "MAKE_LINE_${safe_t}=\$MAKE_CURRENT_LINE"
+          eval "MAKE_FILE_${safe_t}=\$file"
         done
 
         # Set current target to first one for recipe accumulation

@@ -60,6 +60,68 @@ make_sh_resolver_needs_rebuild() {
   return 1
 }
 
+# Return the trace reason string for a target rebuild.
+# Prints one of:
+#   "target 'X' does not exist"
+#   "update target 'X' due to: prereq1 prereq2"
+# Returns 1 if the target is actually up-to-date (no rebuild needed).
+make_sh_resolver_trace_reason() {
+  local target; target="$1"
+
+  # Phony targets always rebuild — reason is prereqs or just "phony"
+  if make_sh_resolver_is_phony "$target"; then
+    local safe; safe=$(make_sh_parser_sanitize "$target")
+    local raw_prereqs; raw_prereqs=""
+    eval "raw_prereqs=\${MAKE_PREREQS_${safe}:-}"
+    make_sh_variables_export_all
+    local prereqs; prereqs=$(make_sh_variables_expand "$raw_prereqs")
+    if [ -n "$prereqs" ]; then
+      printf "update target '%s' due to: %s" "$target" "$prereqs"
+    else
+      printf "target '%s' does not exist" "$target"
+    fi
+    return 0
+  fi
+
+  if [ "${MAKE_FLAG_ALWAYS_MAKE:-0}" = "1" ]; then
+    printf "update target '%s' due to: -B flag" "$target"
+    return 0
+  fi
+
+  # Target file does not exist
+  if [ ! -f "$target" ]; then
+    printf "target '%s' does not exist" "$target"
+    return 0
+  fi
+
+  # Find which prerequisites triggered the rebuild
+  local safe; safe=$(make_sh_parser_sanitize "$target")
+  local raw_prereqs; raw_prereqs=""
+  eval "raw_prereqs=\${MAKE_PREREQS_${safe}:-}"
+  make_sh_variables_export_all
+  local prereqs; prereqs=$(make_sh_variables_expand "$raw_prereqs")
+
+  local newer; newer=""
+  local prereq; prereq=""
+  for prereq in $prereqs; do
+    if make_sh_resolver_is_phony "$prereq"; then
+      if [ -z "$newer" ]; then newer="$prereq"; else newer="$newer $prereq"; fi
+      continue
+    fi
+    if [ ! -f "$prereq" ] || [ "$prereq" -nt "$target" ]; then
+      if [ -z "$newer" ]; then newer="$prereq"; else newer="$newer $prereq"; fi
+    fi
+  done
+
+  if [ -n "$newer" ]; then
+    printf "update target '%s' due to: %s" "$target" "$newer"
+    return 0
+  fi
+
+  # Up-to-date
+  return 1
+}
+
 # DFS-based topological sort for dependency resolution
 # Detects cycles. Outputs space-separated ordered build list to stdout.
 # Uses global visited/stack sets (simulated via space-separated strings).

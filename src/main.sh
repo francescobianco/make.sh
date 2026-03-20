@@ -1,10 +1,9 @@
 
+module usage
 module parser
 module resolver
 module executor
 module variables
-
-embed usage usage.txt
 
 # Version string
 MAKE_SH_VERSION="0.1.0 (make.sh - POSIX sh GNU Make clone)"
@@ -262,9 +261,9 @@ main() {
     for build_target in $order; do
       # Check if target needs rebuild
       if ! make_sh_resolver_needs_rebuild "$build_target"; then
-        # Target is up-to-date - only print message for non-phony file targets
-        if ! make_sh_resolver_is_phony "$build_target"; then
-          printf "make.sh: '%s' is up to date.\n" "$build_target"
+        # Target is up-to-date - only print message for the top-level requested target
+        if [ "$build_target" = "$req_target" ] && ! make_sh_resolver_is_phony "$build_target"; then
+          printf "make: '%s' is up to date.\n" "$build_target"
         fi
         continue
       fi

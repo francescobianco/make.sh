@@ -1,3 +1,6 @@
+
+usage() {
+  cat <<'EOF'
 Usage: make [options] [target] ...
 Options:
   -b, -m                      Ignored for compatibility.
@@ -45,3 +48,5 @@ Options:
 
 This program built for x86_64-pc-linux-gnu
 Report bugs to <bug-make@gnu.org>
+EOF
+}
