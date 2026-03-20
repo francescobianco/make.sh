@@ -32,6 +32,19 @@ make_sh_executor_run() {
     return 0
   fi
 
+  # Print trace line if --trace is enabled
+  if [ "${MAKE_FLAG_TRACE:-0}" = "1" ]; then
+    local trace_file; trace_file=""
+    local trace_line; trace_line=0
+    eval "trace_file=\${MAKE_FILE_${safe}:-${MAKE_MAKEFILE:-Makefile}}"
+    eval "trace_line=\${MAKE_LINE_${safe}:-0}"
+    local trace_reason; trace_reason=""
+    trace_reason=$(make_sh_resolver_trace_reason "$target" 2>/dev/null) || true
+    if [ -n "$trace_reason" ]; then
+      printf '%s:%s: %s\n' "$trace_file" "$trace_line" "$trace_reason"
+    fi
+  fi
+
   local line_num; line_num=1
   local exit_code; exit_code=0
   local overall_exit; overall_exit=0

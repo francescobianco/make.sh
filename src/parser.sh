@@ -53,6 +53,10 @@ make_sh_parser_add_recipe_line() {
   local newcount; newcount=$((count + 1))
   eval "MAKE_RECIPE_COUNT_${safe}=$newcount"
   eval "MAKE_RECIPE_LINE_${safe}_${newcount}=\$line"
+  # Store first recipe line number for --trace (GNU make reports this line)
+  if [ "$count" = "0" ]; then
+    eval "MAKE_LINE_${safe}=\$MAKE_CURRENT_LINE"
+  fi
 }
 
 # Expand variables in a string using current MAKE_VAR_* state
@@ -399,8 +403,7 @@ make_sh_parser_load() {
           local safe_t; safe_t=$(make_sh_parser_sanitize "$tgt")
           # Expand prereqs at parse time for := style, but store as-is for deferred
           eval "MAKE_PREREQS_${safe_t}=\$rule_prereqs"
-          # Store rule line number and source file for --trace
-          eval "MAKE_LINE_${safe_t}=\$MAKE_CURRENT_LINE"
+          # Store source file for --trace (line number stored on first recipe line)
           eval "MAKE_FILE_${safe_t}=\$file"
         done
 

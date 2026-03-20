@@ -88,13 +88,7 @@ make_sh_resolver_trace_reason() {
     return 0
   fi
 
-  # Target file does not exist
-  if [ ! -f "$target" ]; then
-    printf "target '%s' does not exist" "$target"
-    return 0
-  fi
-
-  # Find which prerequisites triggered the rebuild
+  # Check prerequisites first — they take priority over "does not exist"
   local safe; safe=$(make_sh_parser_sanitize "$target")
   local raw_prereqs; raw_prereqs=""
   eval "raw_prereqs=\${MAKE_PREREQS_${safe}:-}"
@@ -115,6 +109,12 @@ make_sh_resolver_trace_reason() {
 
   if [ -n "$newer" ]; then
     printf "update target '%s' due to: %s" "$target" "$newer"
+    return 0
+  fi
+
+  # No contributing prereqs: target file simply does not exist
+  if [ ! -f "$target" ]; then
+    printf "target '%s' does not exist" "$target"
     return 0
   fi
 

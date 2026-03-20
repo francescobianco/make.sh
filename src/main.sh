@@ -16,6 +16,7 @@ main() {
   MAKE_FLAG_KEEP_GOING=0
   MAKE_FLAG_ALWAYS_MAKE=0
   MAKE_FLAG_PRINT_DIR=0
+  MAKE_FLAG_TRACE=0
   MAKE_MAKEFILE=""
   MAKE_DIR=""
   MAKE_TARGETS_CLI=""
@@ -118,7 +119,10 @@ main() {
       -t|--touch)
         # TODO: touch mode
         ;;
-      -d|--debug|--debug=*|--trace)
+      --trace)
+        MAKE_FLAG_TRACE=1
+        ;;
+      -d|--debug|--debug=*)
         ;;
       -I|--include-dir)
         shift
